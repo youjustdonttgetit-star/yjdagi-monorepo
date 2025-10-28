@@ -1,8 +1,19 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "ignoreCommand": "echo 'no ignore'",
-  "installCommand": "npm install",
-  "framework": "vite"
+  "version": 2,
+  "builds": [
+    {
+      "src": "vite.config.ts",
+      "use": "@vercel/static-build",
+      "config": {}
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "https://yjdagi-api.vercel.app"
+  }
 }
-
